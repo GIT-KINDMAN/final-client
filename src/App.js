@@ -9,6 +9,7 @@ import rootReducer from "./store/reducers/indexReducer";
 
 //Main
 import EmpMain from "./page/employee/main/EmpMainPage";
+import AdminMain from "./page/admin/main/AdminMainPage/AdminMainPage"
 
 //store
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
@@ -17,7 +18,10 @@ const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 function App() {
   return (
     <Provider store={store}>
-      <EmpMain />
+        <Switch>
+            <Route path="/emp"> component={EmpMain}></Route>
+        </Switch>
+
     </Provider>
   );
 }
